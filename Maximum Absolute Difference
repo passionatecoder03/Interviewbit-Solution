@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+void fun(vector<int> a)
+{
+	int n=a.size();
+	int i,maxu=INT_MIN,maxd=INT_MIN,minu=INT_MAX,mind=INT_MAX,up,down;
+	for(i=0;i<n;i++)
+	{
+		up = a[i]+i;
+		down = a[i]-i;
+		if(maxu < up) maxu=up;
+		if(minu > up) minu=up;
+		if(maxd < down) maxd=down;
+		if(mind > down) mind=down;
+	}
+	cout<<max(maxu-minu,maxd-mind)<<endl;
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll n ,i;
+		cin>>n;
+		vector<int>v;
+		for(i=0;i<n;i++)
+		{
+			int x;
+			cin>>x;
+			v.push_back(x);
+		}
+		
+		fun(v);
+	}
+return 0;
+}
