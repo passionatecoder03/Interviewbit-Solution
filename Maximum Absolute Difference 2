@@ -25,6 +25,7 @@ void fun(vector<int> a)
 		cout<<d[i]<<" ";
 	}
 	cout<<endl;
+	
 	for(i=0;i<n;i++)
 	{
 		if(maxu<u[i])
