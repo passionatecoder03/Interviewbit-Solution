@@ -1,0 +1,49 @@
+vector<int> Solution::repeatedNumber(const vector<int> &A) {
+    vector <int> a; 
+    a=A;
+	int n=a.size(),x=0,y=0;
+	vector <int> s; 
+	int i,xor1,xor2;
+	xor1 = a[0];
+	for(i=1;i<n;i++)
+	{
+		xor1 = xor1^a[i];
+	}
+	for(i=1;i<=n;i++)
+	{
+		xor1 = xor1^i;
+	}
+	int setbit = xor1 & ~(xor1 - 1);
+	//cout<<setbit<<" "<<xor1<<endl;
+	for(i=0;i<n;i++)
+	{
+		if(a[i]&setbit)
+			x=x^a[i];
+		else
+			y=y^a[i];
+	}
+	for(i=1;i<=n;i++)
+	{
+		if(i&setbit)
+			x=x^i;
+		else
+			y=y^i;
+	}
+	int xc=0,yc=0,tx=x,ty=y;
+	for(i=0;i<n;i++)
+	{
+	    if(a[i]==x)
+	        xc++;
+	    if(a[i]==y)
+	        yc++;
+	}
+	if(yc>1)
+	{
+	   x=ty;
+	   y=tx;
+	}
+	s.push_back(x);
+	s.push_back(y);
+	
+	return s;
+}
