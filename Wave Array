@@ -1,0 +1,11 @@
+vector<int> Solution::wave(vector<int> &a) 
+{
+        int  n=a.size() , i ,flag=0;
+        int l=n-1,s=0;
+        sort(a.begin(),a.end());
+        for(i=1;i<n;i=i+2)
+        { 
+            swap(a[i-1],a[i]);
+        }
+    return a;
+}
