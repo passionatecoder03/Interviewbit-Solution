@@ -1,0 +1,50 @@
+vector<int> Solution::spiralOrder(const vector<vector<int> > &a) 
+{
+        int m = a.size();
+        int n = a[0].size();
+        //cout<<m<<n<<endl;
+        int t=0;
+        int b=m-1 ;
+        int l=0;
+        int r=n-1 ;
+        int y=0 , i;
+        int dir = 0;
+        vector<int> ba(m*n ,0);
+        while(t<=b && l<=r)
+        {
+            if(dir==0)
+            {
+                for(i=l;i<=r;i++)
+                {
+                    ba[y++]=a[t][i];
+                }
+                t++;
+            }
+            else if(dir==1)
+            {
+                for(i=t;i<=b;i++)
+                {
+                    ba[y++]=a[i][r];
+                }
+                r--;
+            }
+            else if(dir==2)
+            {
+                for(i=r;i>=l;i--)
+                {
+                    ba[y++]=a[b][i];
+                }
+                b--;
+            }
+            else if(dir==3)
+            {
+                for(i=b;i>=t;i--)
+                {
+                    ba[y++]=a[i][l];
+                }
+                l++;
+            }
+            dir = (dir+1)%4;
+        }
+        return ba;
+}
