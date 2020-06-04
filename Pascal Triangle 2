@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+void fun(int n)
+{
+	vector<vector<int> > a;
+	int i,j;
+	
+	for(i=1;i<=n;i++)
+	{
+			vector<int>b;
+			b.push_back(1);
+			int c=1;
+			for(j=1;j<i;j++)
+			{
+				c = c*(i-j)/j;
+				b.push_back(c);	
+			}
+		a.push_back(b);
+	}	
+	for(i=0;i<a.size();i++)
+	{
+		for(j=0;j<a[i].size();j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll n ,i,j,m;
+		cin>>n;
+		fun(n);
+	}
+return 0;
+}
