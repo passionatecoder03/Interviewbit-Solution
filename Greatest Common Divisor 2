@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int fun(int n,int m)
+{
+	if(m==0) return n;
+	else if(n==0) return m;
+	else if(n>=m)
+	  return fun(n-m,m);
+	else
+	  return fun(n,m-n);
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll n ,m,i;
+		cin>>n>>m;
+		cout<<fun(n,m)<<endl;
+	}
+return 0;
+}
