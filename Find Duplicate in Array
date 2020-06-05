@@ -1,0 +1,13 @@
+int Solution::repeatedNumber(const vector<int> &a) {
+    int n=a.size() , i ,ans;
+    vector<int> arr;
+    arr=a;
+    for (i = 0; i < n; i++) 
+    { 
+        if (arr[abs(arr[i])] >= 0) 
+            arr[abs(arr[i])] = -arr[abs(arr[i])]; 
+        else
+            {ans=abs(arr[i]); break;}
+    } 
+    return ans;
+}
