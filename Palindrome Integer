@@ -1,0 +1,26 @@
+int Solution::isPalindrome(int n) {
+    
+        int m,ans;
+        
+        m=n;
+        if(n>=0)
+        {
+            int r,rev=0;
+            while(n!=0)
+            {
+                r = n%10;
+                rev = rev*10 + r;
+                n = n/10;
+            }
+            //cout<<rev<<endl;
+            if(rev == m)
+                ans = 1;
+            else
+                ans=0;
+        }
+        else
+        {
+            ans=0;
+        }
+    return ans;
+}
