@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+void fun(vector<int> a)
+{
+	vector<int> b;
+	b=a;
+    int n=a.size(),k=-1,i,x=0,ans=1,flag=1,s=0,e=0,mini=INT_MAX,maxi=INT_MIN;
+	while(flag)
+	{
+		k=-1,flag=0;
+		for(i=n-1;i>=0;i--)
+		{
+			if(a[i-1] < a[i])
+			{
+				k=i-1;
+				break;
+			}
+		}
+		
+		if(k!=-1)
+		{
+			for(i=n-1;i>=0;i--)
+			{
+				if(a[i]>a[k])
+				{
+					swap(a[i],a[k]);
+					break;
+				}
+			}
+			reverse(a.begin()+k+1, a.end());
+		}
+		else
+		{
+			reverse(a.begin(), a.end());
+		}
+	
+		for(i=0;i<n;i++)
+		{
+			cout<<a[i]<<" ";
+		}
+		cout<<endl;
+		for(i=0;i<n;i++)
+		{
+			if(a[i]!=b[i])
+			{
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0)
+		break;
+	}
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll n ,i;
+		cin>>n;
+		vector<int>v;
+		for(i=0;i<n;i++)
+		{
+			int x;
+			cin>>x;
+			v.push_back(x);
+		}
+		
+		fun(v);
+	}
+return 0;
+}
