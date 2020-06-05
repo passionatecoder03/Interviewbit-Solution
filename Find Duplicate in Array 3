@@ -1,0 +1,21 @@
+int Solution::repeatedNumber(const vector<int> &a) {
+        int n=a.size() , i ,ans=0;
+ 
+        vector<int> b(n);
+        fill(b.begin(), b.end(), 0);
+        
+        for(i=0;i<n;i++)
+        {
+            b[a[i]-1]++;
+        }
+            
+        for(i=0;i<n;i++)
+        {
+            if(b[i] > 1)
+            {
+                ans=i+1;
+                break;
+            }
+        }
+    return ans;
+}
