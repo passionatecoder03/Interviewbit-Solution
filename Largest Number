@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int comp(string x,string y)
+{
+	int ans;
+	string xy,yx;
+	xy=x.append(y);
+	yx=y.append(x);
+	if(xy>yx)
+	   ans=1;
+	else
+	   ans=0;
+	return ans;
+}
+
+void fun(vector<int> a)
+{
+    int n=a.size(),i,x=0,ans=1,flag=0;
+	vector <string> s;
+	for(i=0;i<n;i++)
+		s.push_back(to_string(a[i]));	
+	sort(s.begin(),s.end(),comp);
+	string fans="";
+	for(i=0;i<n;i++)
+	{
+		fans=fans+s[i];
+	}
+	while(fans[i]=='0')
+    {
+        i++;
+    }
+    if(i==s.size())
+    	fans="0";
+    	
+	cout<<fans<<endl;
+	for(i=0;i<n;i++)
+		cout<<s[i]<<" ";
+	cout<<endl;
+	
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll n ,i;
+		cin>>n;
+		vector<int>v;
+		for(i=0;i<n;i++)
+		{
+			int x;
+			cin>>x;
+			v.push_back(x);
+		}
+		
+		fun(v);
+	}
+return 0;
+}
