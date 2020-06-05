@@ -1,0 +1,57 @@
+vector<int> Solution::subUnsort(vector<int> &a) {
+    vector<int> fin;
+    int n=a.size(),i,x=0,ans=1,flag=0,s=0,e=0,mini=INT_MAX,maxi=INT_MIN;
+	for(i=0;i<n-1;i++)
+	{
+		if(a[i]>a[i+1])
+		{
+			s=i;
+			break;
+		}
+	}
+	for(i=n-1;i>0;i--)
+	{
+		if(a[i-1]>a[i])
+		{
+			e=i;
+			break;
+		}
+	}
+	for(i=s;i<=e;i++)
+	{
+		if(maxi < a[i])
+			maxi = a[i];
+		if(mini > a[i])
+			mini = a[i];	
+	}
+//	cout<<a[s]<<" "<<a[e+1]<<endl;
+//	cout<<maxi<<" "<<mini<<endl;
+	for(i=0;i<s;i++)
+	{
+		if(a[i] > mini)
+		{
+			s=i;
+			break;	
+		}	
+	}
+	for(i=n-1;i>=e+1;i--)
+	{
+		if(a[i] < maxi)
+		{
+			e=i;
+			break;	
+		}
+	}
+	//cout<<a[s]<<" "<<a[e]<<endl;
+	//cout<<s<<" "<<e<<endl;
+    if(s==0&&e==0)
+    {
+        fin.push_back(-1);
+    }
+    else
+    {
+        fin.push_back(s);
+        fin.push_back(e);
+    }
+        return fin;
+}
