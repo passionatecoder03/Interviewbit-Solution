@@ -1,0 +1,40 @@
+int Solution::repeatedNumber(const vector<int> &a) {
+        int n=a.size() , i ,ans=-1;
+ 
+        int l=n-1,sq;
+        
+        sq = sqrt(n);
+        int r = (n/sq) + 1;
+        
+        int count[r]={0} , index;
+        
+        for(i=0;i<n;i++)
+        {
+            count[(a[i] - 1)/sq]++ ;
+        }
+        index = r-1;
+        for(i=0;i<r-1;i++)
+        {
+            if(count[i] > sq)
+            {
+                index = i;
+                break;
+            }
+        }
+       // cout<<i<<endl;
+        unordered_map <int,int> m;
+        
+        for(i=0;i<=n;i++)
+        {
+            if((index*sq) < a[i] && ((index+1)*sq) >= a[i])
+            {
+                m[a[i]]++;
+                
+                if(m[a[i]] > 1)
+                    ans=a[i];
+            }
+            
+        }
+    //cout<<ans<<endl;
+    return ans;
+}
