@@ -1,0 +1,32 @@
+vector<int> Solution::subUnsort(vector<int> &a) {
+    vector<int> sol;
+    vector<int> fin;
+    sol = a;
+    int i , n = a.size(),j;
+    int s=0,e=0,ent=0;
+    sort(a.begin(),a.end());
+    for(i=0;i<n;i++)
+    {
+            if(a[i] != sol[i])
+            {
+                if(ent==0)
+                {
+                    s=i;
+                    ent++;
+                }
+                e=i;
+            }
+            
+        //cout<<s<<e<<endl;
+    }
+    if(s==0&&e==0)
+    {
+        fin.push_back(-1);
+    }
+    else
+    {
+        fin.push_back(s);
+        fin.push_back(e);
+    }
+        return fin;
+}
