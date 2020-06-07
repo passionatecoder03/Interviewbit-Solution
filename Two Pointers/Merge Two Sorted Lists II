@@ -1,0 +1,24 @@
+void Solution::merge(vector<int> &a, vector<int> &b) {
+    vector<int> c;
+    int n=a.size(),m=b.size(),i=0,j=0;
+    a.push_back(INT_MAX),b.push_back(INT_MAX);
+
+    while(i<n || j<m)
+    {
+        if(a[i]<b[j])
+        {
+            c.push_back(a[i]);
+            i++;
+        }
+        else
+        {
+            c.push_back(b[j]);
+            j++;
+        }
+    }
+    a.clear();
+
+    for(i=0;i<c.size();i++)
+        a.push_back(c[i]);    
+}
+
