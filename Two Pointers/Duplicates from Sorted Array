@@ -1,0 +1,21 @@
+int Solution::removeDuplicates(vector<int>& a){
+	vector<int> c;
+	int n=a.size(),i=0,j=0;
+	a.push_back(INT_MAX);
+	while(i<n)
+	{
+		if(a[i]==a[i+1])
+		{
+			i++;
+		}
+		else 
+		{
+			c.push_back(a[i]);
+			i++;
+		}
+	}
+	a.clear();
+	for(i=0;i<c.size();i++)
+		a.push_back(c[i]);	
+	return c.size();		
+}
