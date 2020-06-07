@@ -1,0 +1,27 @@
+int Solution::removeElement(vector<int> &a, int k)
+{
+	int n=a.size(),i=0,j=0,cnt=1,l=0;
+	while(i<n)
+	{
+		if(a[i]==k)
+		{
+			a[i]=INT_MAX;
+			i++;
+			l++;
+		}
+		else
+			i++;
+	}
+	for (auto it = a.begin(); it != a.end(); ++it) 
+    {
+		if(*it==INT_MAX)
+		{
+			a.erase(it);
+			it--;
+		}
+	}
+	
+
+    n=a.size();
+    return n;
+}
