@@ -1,0 +1,19 @@
+void Solution::sortColors(vector<int>& a){
+    int n = a.size();
+	int s=0,m=0,e=n-1;
+	while(m<=e)
+	{
+		if(a[m]==0)
+		{
+			swap(a[s++],a[m++]);
+		}
+		else if(a[m]==1)
+		{
+			m++;
+		}
+		else if(a[m]==2)
+		{
+			swap(a[m],a[e--]);
+		}
+	}
+}
