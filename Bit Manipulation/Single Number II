@@ -1,0 +1,20 @@
+int Solution::singleNumber(const vector<int> &arr) {
+    int n = arr.size()  ,xor1=0,c=1,i;
+    vector<int> a;
+    a=arr;
+    sort(a.begin(),a.end());
+    for(i=0;i<n;i++)
+    {
+        if(a[i]==a[i+1])
+            c++;
+        else
+        {
+            if(c<3)
+            {
+                xor1=a[i];
+            }
+            c=1;
+        }
+    }
+    return xor1;
+}
