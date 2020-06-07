@@ -1,0 +1,26 @@
+int Solution::removeDuplicates(vector<int>& a) {
+    
+	int n=a.size(),i=0,cnt=1,l=0;
+	a.push_back(INT_MAX);
+	while(i<n)
+	{
+		if(a[i]==a[i+1])
+		{
+			cnt++;
+			if(cnt>2)
+			{
+				a[i]=INT_MAX;
+				l++;
+			}
+			i++;
+		}
+		else 
+		{
+			i++;
+			cnt=1;
+		}
+	}
+	sort(a.begin(),a.end());
+	a.resize(a.size()-l-1);	
+	return a.size();
+}
