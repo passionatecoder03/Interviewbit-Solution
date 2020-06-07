@@ -1,0 +1,95 @@
+class Solution {
+public:
+    void sortColors(vector<int>& a) {
+        long long int n = a.size(),zeros,ones,i,j;
+        
+// for finding zeros and putting it in start;
+        
+        i=0,j=1;
+        while(j<n)
+        {  
+            //00
+            if(a[i]==0&&a[i+1]==0)
+            {
+                i++;
+                j++;
+            }
+            //(10 or 11) (20 or 22)
+            else if(a[i]!=0)
+            {  
+                if(a[j]==0)
+                {
+                    swap(a[i],a[j]);
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+            //(i=1 or 2)  and (j=0) i++ ans swap;
+            else if(a[j]==0)
+            {
+                i++;
+                swap(a[i],a[j]);
+            }
+            // if j not 0 j++;
+            else if(a[j]!=0)
+            {
+                j++;   
+            }
+            
+        }
+    
+// find number of zeros (ie:- c);
+        int c=0,m=0;
+        while(m<n)
+        {
+            if(a[m]==0)
+                c++;
+            else
+                break;
+            m++;
+        }
+        
+// reinitilize i=c and j=c+1; 
+        
+        i =c;
+        j=c+1;
+
+// for finding ones and putting it after zeros;
+        
+        while(j<n)
+        {   
+            // 11
+            if(a[i]==1&&a[i+1]==1)
+            {
+                i++;
+                j++;
+            }
+            // 01 or 02
+            else if(a[i]!=1)
+            {
+                
+                if(a[j]==1)
+                {
+                    swap(a[i],a[j]);
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+            // 10 or 12
+            else
+            {
+                i++;
+                j++;
+            }   
+        }      
+        
+    }
+};
