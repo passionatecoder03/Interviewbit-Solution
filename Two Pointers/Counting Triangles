@@ -1,0 +1,33 @@
+int Solution::nTriang(vector<int>& a) {
+       
+    int n = a.size(),zeros=0,m=1e9+7, s,e,ans=0;
+	sort(a.begin(),a.end());
+	for(auto i=a.begin();i!=a.end();i++)
+	{
+		if(*i==0)
+		{
+			a.erase(i);
+			i--;
+		}	
+	}
+
+	for(int i=n-1;i>1;i--)
+	{
+		s=0;
+		e=i-1;
+		while(s<e)
+		{
+			if(a[s]+a[e]>a[i])
+			{
+				ans = (ans%m+abs(e-s)%m)%m;
+				e--;
+			}
+			else
+			{
+				s++;
+			}
+		}
+	}
+    return ans;  
+}
+    
