@@ -1,0 +1,24 @@
+int Solution::diffPossible(vector<int> &a, int k) {
+
+        int n=a.size(),i,ans=0,flag=0,s,e;
+
+        s=0,e=1;
+        while(s<n&&e<n)
+        {
+            if(s!=e&&abs(a[s]-a[e]) == k)
+            {
+                ans=1;
+                return ans;
+            }
+            else if(abs(a[s]-a[e]) < k)
+            {
+                e++;
+            }    
+            else
+            {
+                s++;
+            }
+        }
+        
+    return ans;
+}
