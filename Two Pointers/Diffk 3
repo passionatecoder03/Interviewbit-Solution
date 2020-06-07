@@ -1,0 +1,37 @@
+int Solution::diffPossible(vector<int> &a, int k) {
+ 
+        int n=a.size(),i,ans=0,flag=0,s,e;
+        if(n==1)    return 0;
+        if(n>1&&k==0)
+        {
+            for(i=0;i<n-1;i++)
+            {
+                if(a[i]==a[i+1])
+                {
+                    flag=1;
+                    return 1;
+                }
+            }
+            if(flag==0)
+                return 0;
+            
+        }
+        s=0,e=1;
+        while(s<n)
+        {
+            if(abs(a[s]-a[e]) == k)
+            {
+                ans=1;
+                break;
+            }
+            else if(abs(a[s]-a[e]) < k)
+            {
+                e++;
+            }    
+            else
+            {
+                s++;
+            }
+        }
+    return ans;
+}
