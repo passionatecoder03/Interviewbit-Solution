@@ -1,0 +1,8 @@
+int Solution::singleNumber(const vector<int> &a) {
+    int n = a.size() , i ,xor1=0;
+    for(i=0;i<n;i++)
+    {
+        xor1 = xor1^a[i];
+    }
+    return xor1;
+}
