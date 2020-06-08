@@ -1,0 +1,39 @@
+int Solution::majorityElement(const vector<int>& a) {
+    
+        int n = a.size(),i;
+        
+            int f=-1,s=-1,c1=0,c2=0;
+ 
+            for(i=0;i<n;i++)
+            {
+                if(f==a[i]) c1++;
+                else if(s==a[i]) c2++;
+                else if(c1==0)
+                {
+                    f=a[i];
+                     c1++;
+                }
+                else if(c2==0)
+                {
+                    s=a[i];
+                    c2++;
+                }
+                else
+                {
+                    c1--;
+                    c2--;
+                }
+            }
+           // cout<<f<<s<<endl;
+            c1=0,c2=0;
+            for(i=0;i<n;i++)
+            {
+                if(a[i]==f) c1++;
+                if(a[i]==s) c2++;
+            }
+            if(c1 > (int)n/2)
+                return f;
+            if(c2 > (int)n/2)
+                return s;
+ 
+}
