@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int fun(vector<int> a,vector<int> b,vector<int> c)
+{
+	int al=a.size() , bl=b.size() ,cl=c.size() ;
+	int sa=al-1,sb=bl-1,sc=cl-1;
+	int mini=INT_MAX , maxi=INT_MIN;
+	
+	while(sa>=0&&sb>=0&&sc>=0)
+	{
+		cout<<a[sa]<<" "<<b[sb]<<" "<<c[sc]<<endl;
+		maxi = max(max(abs(a[sa]-b[sb]),abs(b[sb]-c[sc])),abs(c[sc]-a[sa]));
+		cout<<maxi<<endl;
+		if(maxi < mini)
+			mini=maxi;
+		if(a[sa]>=b[sb]&&a[sa]>=c[sc])
+		{
+			sa--;
+		}
+		else if(b[sb]>=a[sa]&&b[sb]>=c[sc])
+		{
+			sb--;
+		}
+		else if(c[sc]>=a[sa]&&c[sc]>=b[sb])
+		{
+			sc--;
+		}
+	}
+	cout<<"mini= "<<mini<<endl;	
+	return 0;
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll al,bl,cl ,i;
+		cin>>al>>bl>>cl;
+		vector<int>a;
+		vector<int>b;
+		vector<int>c;
+		for(i=0;i<al;i++)
+		{
+			int x;
+			cin>>x;
+			a.push_back(x);
+		}
+		for(i=0;i<bl;i++)
+		{
+			int x;
+			cin>>x;
+			b.push_back(x);
+		}
+		for(i=0;i<cl;i++)
+		{
+			int x;
+			cin>>x;
+			c.push_back(x);
+		}	
+		fun(a,b,c);
+	}
+return 0;
+}
