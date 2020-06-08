@@ -1,0 +1,44 @@
+int Solution::evalRPN(vector<string>& a) {
+        int n=a.size(),i;
+        stack<string> s1;
+        stack<string> s2;
+        for(i=0;i<n;i++)
+        {   // if +,-,*,/ then pop 2 element perform operation and push back the sol;       
+            if(a[i]=="+"||a[i]=="/"||a[i]=="-"||a[i]=="*")
+            {
+                int x,y,z;
+                y=stoi(s1.top());
+                s1.pop();
+                x=stoi(s1.top());
+                s1.pop();
+                //cout<<x<<" "<<y<<endl;
+                if(a[i]=="+")
+                {
+                    z = x+y;
+                }
+                else if(a[i]=="*")
+                {
+                    z = x*y ;  
+                }
+                else if(a[i]=="/")
+                {
+                    z=x/y;
+                }
+                else if(a[i]=="-")
+                {
+                    z=x - y;
+                }
+                //cout<<z<<endl;
+                s1.push(to_string(z));
+            }
+            else
+            {
+                // if its number then just push it ;
+                //cout<<"ai= "<<a[i]<<endl;
+                s1.push(a[i]);
+            }
+        }
+        
+        
+        return stoi(s1.top());
+    }
