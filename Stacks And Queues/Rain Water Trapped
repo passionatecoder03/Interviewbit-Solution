@@ -1,0 +1,14 @@
+int Solution::trap(const vector<int> &height) {
+    
+    int l = 0, r = height.size() - 1; // two pointers
+    int lmax = 0, rmax = 0; // keep track of max from either side
+    int total = 0;
+    
+    while(l < r) {
+        lmax = max(lmax, height[l]); 
+        rmax = max(rmax, height[r]);
+        if(lmax < rmax) total += lmax - height[l++];
+        else total += rmax - height[r--];
+    }
+    return total;
+}
