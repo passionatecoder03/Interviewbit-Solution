@@ -1,0 +1,31 @@
+int Solution::solve(vector<int> &a, vector<int> &b, vector<int> &c) {
+    int al=a.size() , bl=b.size() ,cl=c.size() ;
+    int sa=al-1,sb=bl-1,sc=cl-1;
+    int mini=INT_MAX , maxi=INT_MIN,ldiff=INT_MAX;
+    
+    while(sa>=0&&sb>=0&&sc>=0)
+    {
+        //cout<<a[sa]<<" "<<b[sb]<<" "<<c[sc]<<endl;
+        maxi = max(max(a[sa],b[sb]),c[sc]);
+        mini = min(min(a[sa],b[sb]),c[sc]);
+        
+        int diff=maxi-mini;
+        //cout<<maxi<<" "<<mini<<" "<<diff<<endl;
+        if(diff<ldiff)
+            ldiff=diff;
+        if(a[sa]>=b[sb]&&a[sa]>=c[sc])
+        {
+            sa--;
+        }
+        else if(b[sb]>=a[sa]&&b[sb]>=c[sc])
+        {
+            sb--;
+        }
+        else if(c[sc]>=a[sa]&&c[sc]>=b[sb])
+        {
+            sc--;
+        }
+    }
+    //cout<<"mini= "<<mini<<endl;    
+    return ldiff;
+}
