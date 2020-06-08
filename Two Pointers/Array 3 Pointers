@@ -1,0 +1,43 @@
+int Solution::threeSumClosest(vector<int> &a, int target) {
+
+        long long int  n=a.size(),i,start,end,ans=INT_MAX,flag=0;
+        //sort the array
+        sort(a.begin(),a.end());
+        // from 1 to end-2 we work
+        //we have taken 3 pointers
+        //i = for every element in array;
+        //j = start;
+        //k = end;
+        for(i=0;i<n-2;i++)
+        {
+            // for every element in array;
+            start=i+1;
+            end=n-1;
+            //till end > start we have to find the sum of 3 numbers
+            //which are pointed by the above pointer
+            //total sum = a[i]+a[start]+a[end];
+            //for nearest value we calulate the (target - ans)
+            //for present value we calulate the (target - totalsum)
+            // if (present value < nearest value) 
+            while(start<end)
+            {
+                int totalsum =a[i]+a[start]+a[end];
+                //cout<<tt<<endl;
+                if(abs(1LL*target - totalsum) < abs(1LL*target - ans))
+                {
+                    ans = totalsum;
+                }
+                else if(totalsum > target)
+                {
+                    end--;
+                }
+                else
+                {
+                    start++;
+                }
+            }
+        }
+
+return ans;
+}
+
