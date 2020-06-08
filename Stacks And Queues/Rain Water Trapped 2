@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int fun(vector<int> a)
+{
+	int n=a.size(),i,j,ans=0;
+	vector <int> pre(n);
+	vector <int> post(n);
+	pre[0]=a[0];
+	post[n-1]=a[n-1];
+	for(i=1;i<n;i++)
+	{
+		if(pre[i-1]<a[i])
+			pre[i]=a[i];
+		else
+			pre[i] = pre[i-1];
+	}
+	for(i=n-2;i>=0;i--)
+	{
+		if(post[i+1]<a[i])
+			post[i]=a[i];
+		else
+			post[i] = post[i+1];	
+	}
+	
+//	for(i=0;i<n;i++)
+//		cout<<pre[i]<<" ";
+//	cout<<endl;
+//	for(i=0;i<n;i++)
+//		cout<<post[i]<<" ";
+//	cout<<endl;
+
+	for(i=0;i<n;i++)
+	{
+		int pnt = min(pre[i],post[i]);
+		ans = ans + pnt-a[i];	
+	}	
+	cout<<ans<<endl;
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		ll al,bl,cl ,i,tar;
+		cin>>al;
+		vector<int>a;
+		for(i=0;i<al;i++)
+		{
+			int x;
+			cin>>x;
+			a.push_back(x);
+		}
+		//cin>>tar;	
+		fun(a);
+	}
+return 0;
+}
