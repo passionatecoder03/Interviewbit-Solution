@@ -1,0 +1,36 @@
+int bs(vector<int> a,int s,int e,int k,int &c)
+{
+    while(s<=e)
+    {
+        int mid = (s+e)/2;
+        if(a[mid]==k)
+        {    
+            if(bs(a,s,mid-1,k,c))
+            {
+                c++;
+            }
+            if(bs(a,mid+1,e,k,c))
+            {
+                c++;
+            }
+            return c/2;
+        }
+        else if(a[mid] < k )
+        {
+            s=mid+1;
+        }
+        else
+        {
+            e=mid-1;
+        }
+    }
+    return -1;
+}
+ 
+int Solution::findCount(const vector<int> &a, int k) {
+    int c=0,n=a.size(),ans=0;
+    ans = bs(a,0,n-1,k,c);;
+    if(ans==-1)
+        ans=0;
+   return ans;
+}
