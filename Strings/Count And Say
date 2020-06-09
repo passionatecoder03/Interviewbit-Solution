@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int main()
+{
+	speed;
+	ll t; 
+	cin>>t; 
+	cin.ignore();
+	while(t--)
+	{
+		int n,i;
+		cin>>n;
+		string f="1",s="11";
+		if(n==1)
+		{
+			cout<<f<<endl;
+		}
+		else if(n==2)
+		{
+			cout<<s<<endl;
+		}
+		else
+		{
+			for(i=3;i<=n;i++)
+			{
+				string temp;
+				int c=0,m=s.length(),j;
+				for(j=0;j<m;j++)
+				{
+					if(s[j]==s[j+1])
+					{
+						c++;
+					}
+					else
+					{
+						c++;
+						temp+=to_string(c);
+						temp+=s[j];
+						c=0;
+					}
+				}
+				s.clear();
+				s=temp;
+			} 
+			cout<<s<<endl;
+		}
+	}
+return 0;
+}
