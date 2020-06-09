@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int fun(string a,string b)
+{
+	        long long int al=a.length(),bl=b.length(),i,j,flag=-1,f=0;
+        if(bl==0)
+        {
+            flag=0;
+        }
+        else
+        {
+        	for(i=0;i<al-bl+1;i++)
+        	{
+        		if(a[i]==b[0])
+        		{
+        			int m=i;
+        			for(j=0;j<bl;j++)
+        			{
+        				if(a[m]==b[j])
+        				{
+        					//cout<<m<<endl;
+        					flag=i;	
+    						if(j==bl-1)
+			                	f=1;
+        				}	
+        				else
+        				{
+        					flag=-1;
+        					break;
+        				}
+        				m++;
+        			}
+        		}
+        		if(f==1)
+        		break;
+        	}
+        }
+	cout<<"fin= "<<flag<<endl;
+	return flag;
+}
+
+int main()
+{
+speed;
+	speed;
+	ll t; 
+	cin>>t; 
+	cin.ignore();
+	while(t--)
+	{	
+		string a;
+		string b;
+		cin>>a;
+		cin>>b;
+		cout<<a<<" "<<b<<endl;
+		cout<<fun(a,b)<<endl;
+	}
+return 0;
+}
