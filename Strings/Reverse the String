@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+string solve(string q) {
+        int n = q.length() , j , c=0 ,i,k=0;
+        string st="";
+        string res="";
+        vector<string>ans;
+        for(i=n-1;i>=0;i--)
+        {
+            if(q[i]!=' ')
+            {
+                st.push_back(q[i]);
+            	 
+            }
+            if(q[i]==' '||i==0)
+            {
+                reverse(st.begin(),st.end());
+                ans.push_back(st);
+                st.clear();
+            }
+            //cout<<st<<endl;
+        }
+        for(i=0;i<ans.size();i++)
+        {
+        	cout<<"y= "<<ans[i]<<endl;
+            res+=ans[i]; 
+            if(i!=ans.size()-1)
+            res+=" ";
+        }
+        //cout<<"res= "<<res<<endl;
+return res;
+}
+
+int main()
+{
+	speed;
+	ll t; 
+	cin>>t;
+	cin.ignore(); 
+	while(t--)
+	{
+		string st;
+		getline(cin,st);
+		cout<<solve(st)<<endl;
+	}
+return 0;
+}
