@@ -1,0 +1,22 @@
+int Solution::isPower(int n) {
+    int i,flag=0,ans=0;
+            float p;
+            
+            for(i=2;i<=sqrt(n);i++)
+            {
+                p = log2(n) / log2(i) ;
+                //cout<<p<<" "<< ceil(p)<<" "<<floor(p)<<endl;
+                if((ceil(p)==floor(p)) && p>1)
+                {
+                    //cout<<i<<endl;
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+                ans = 0;
+            else
+                ans =1;
+            if(n==1) ans = 1;
+    return ans;
+}
