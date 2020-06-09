@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+int main()
+{
+speed;
+	ll t; 
+	cin>>t;
+	cin.ignore(); 
+	while(t--)
+	{
+		string s;
+		//
+		getline(cin,s);
+		int sl=s.size(),i;
+		for(i=0;i<sl;i++)
+		{
+			if(s[i]>=65&&s[i]<=90)
+			{
+				s[i]=s[i]+32;
+			}
+		}
+//		for(i=0;i<sl;i++)
+//			cout<<s[i];
+//		cout<<endl;
+	 	int strat = 0,end=sl-1,flag=0,ans=0;
+		
+		while(strat<end)
+		{
+			if( ((s[strat]>96&&s[strat]<123)&&(s[end]>96&&s[end]<123))
+				||((s[strat]>47&&s[strat]<58)&&(s[strat]>47&&s[strat]<58)) )
+			{
+				if(s[strat]==s[end])
+				{
+					strat++;
+					end--;
+					flag=1;	
+				}
+				else
+				{
+					flag=0;
+					ans=0;
+					break;
+				}	
+			}
+			else if(s[strat]<97||s[strat]>122)
+			{
+				ans=1;
+				strat++;
+			}
+			else if(s[end]<97||s[end]>122)
+			{
+				ans=1;
+				end--;
+			}
+		}
+		if(flag==1)
+		ans=1;
+		cout<<ans<<endl;
+	}
+return 0;
+}
