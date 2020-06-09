@@ -1,0 +1,27 @@
+int Solution::lengthOfLastWord(const string q) {
+        string s;
+        int n = q.length() , c=0 ,i,x=0,flag=0;;
+    //    cout<<n<<endl;
+        for(i=0;i<n;i++)
+        {
+            if(q[n-i-1]==' ' && flag==0)
+            {
+                continue;
+            }
+            else
+            {
+                flag=1;
+                if(q[n-i-1]==' ')
+                    break;
+                else
+                {
+                    s+=(q[n-i-1]);
+                    c++;
+                }    
+            }
+        }
+        //cout<<s<<endl;
+        
+    //    cout<<c<<endl;
+    return c;
+}
