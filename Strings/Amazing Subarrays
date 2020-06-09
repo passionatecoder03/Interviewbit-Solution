@@ -1,0 +1,13 @@
+int Solution::solve(string s) {
+    int count=0;
+        int n=s.length();
+            for(int j=0;j<n;j++)
+            {
+                if(s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u'||s[j]=='A'||s[j]=='E'||s[j]=='I'||s[j]=='O'||s[j]=='U')
+                {
+                    count+=n-j;
+                }
+            }
+        int mod=10003;
+    return count% mod;
+}
