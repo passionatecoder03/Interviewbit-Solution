@@ -1,0 +1,93 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+
+int e[100001]; 
+int start=0;
+int endss =0;
+int size;
+int c=0
+void enqueue()
+{
+	cout<<"enq"<<endl;
+	int x;
+	cin>>x;
+	if(start!=endss||e[endss]==-1||e[0]==0)
+	{	
+		e[endss++]=x;
+		endss = endss % size;
+	}
+	else if(start==endss)
+	{
+		cout<<"full"<<endl;
+	}
+	cout<<"se= "<<start<<" "<<endss<<endl;
+	for(int i=0;i<size;i++)
+		cout<<e[i]<<" ";
+	cout<<endl;
+}
+void dequeue()
+{
+	if(e[start]==-1)
+		cout<<"empty"<<endl;
+	else
+	{
+		cout<<e[start]<<endl;
+		e[start++]=-1;
+		start = start % size;
+	}
+}
+void front()
+{
+	if(e[start]==-1)
+		cout<<"empty"<<endl;
+	else
+	{
+		cout<<e[start]<<endl;
+	}	
+}
+void rear()
+{
+	if(e[start]==-1)
+		cout<<"empty"<<endl;
+	else
+	{
+		cout<<e[endss-1]<<endl;
+	}	
+}
+int main()
+{
+	speed;
+	cin>>size;
+	T
+	{	
+		
+		int n;
+		cin>>n;
+		if(n==1)
+		{
+			//enqueue
+			enqueue();	
+		}
+		else if(n==2)
+		{
+			//dequeue
+			dequeue();
+		}
+		else if(n==3)
+		{
+			//front
+			front();
+		}
+		else if(n==4)
+		{
+			//rear
+			rear();
+		}
+	}
+return 0;
+}
+
+
