@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+
+queue <int> a;
+queue <int> b;
+queue <int> c;
+void add()
+{
+	int x;
+	cin>>x;
+	a.push(x);	
+	c=a;
+	int cl=c.size();
+	cout<<"push= ";
+	for(int i=0;i<cl;i++)
+	{
+		cout<<c.front()<<" ";
+		c.pop();
+	}
+	cout<<endl;
+}
+void remove()
+{
+		if(a.size()==0&&b.size()==0)
+		{
+			cout<<"Empty"<<endl;
+		}
+		else
+		{
+			while(a.size()!=1)
+			{
+				b.push(a.front());
+				a.pop();
+			}
+			if(a.size()==1)
+			{
+				cout<<"pop= "<<a.front()<<endl;
+				a.pop();
+			}
+			queue<int> temp;
+			temp=a;
+			a=b;
+			b=temp;
+		}
+}
+
+int main()
+{
+	speed;
+	T
+	{
+		int n;
+		cin>>n;
+		if(n==1)
+		{
+			//enqueue
+			add();	
+		}
+		else if(n==2)
+		{
+			//dequeue
+			remove();
+		}
+	}
+return 0;
+}
