@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+int main()
+{
+	speed;
+	T
+	{
+		queue<int> q;
+		vector<int> v;
+		int n,k,i,x,maxi=INT_MIN,j=0;
+		cin>>n;
+		for(i=0;i<n;i++)
+		{
+			int x;
+			cin>>x;
+			v.push_back(x);	
+		}
+		cin>>k;
+		while(j<n)
+		{
+				q.push(v[j]);
+				if(maxi<q.front())
+					maxi=q.front();
+				q.pop();
+				if(j>=k-1)
+				{				
+					cout<<maxi<<" ";
+				}	
+			j++;
+		}
+		cout<<endl;
+		
+	}
+return 0;
+}
+
+
