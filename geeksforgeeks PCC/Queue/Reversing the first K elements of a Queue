@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+int main()
+{
+	speed;
+	T
+	{
+		stack<int> s;
+		queue<int> q;
+		vector<int> v;
+		int n,k,i,x;
+		cin>>n;
+		cin>>k;
+		for(i=0;i<k;i++)
+		{
+			cin>>x;
+			s.push(x);
+		}
+		for(i=0;i<k;i++)
+		{
+			q.push(s.top());
+			s.pop();
+		}
+		for(i=k;i<n;i++)
+		{
+			cin>>x;
+			q.push(x);
+		}
+		for(i=0;i<n;i++)
+		{
+			cout<<q.front()<<" ";
+			q.pop();
+		}
+		cout<<endl;
+		
+	}
+return 0;
+}
+
+
