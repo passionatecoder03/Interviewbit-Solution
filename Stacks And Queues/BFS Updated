@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define T ll t; cin>>t; while(t--)
+using namespace std;
+#define speed ios_base::sync_with_stdio(0)
+#define endl "\n"
+
+void bfs(int s , vector<vector<int>>  &v,vector<int> &vis )
+{
+	cout<<"call= "<<s<<endl;
+	queue<int> q;
+	q.push(s);
+	vis[s]=1;
+	while(!q.empty())
+	{
+		
+		s=q.front();
+		vis[s]=1;
+		cout<<"s= "<<s<<endl;
+		q.pop();
+		for(auto i=v[s].begin();i!=v[s].end();i++)
+		{
+			if(!vis[*i])
+			{
+				vis[*i]=1;
+				q.push(*i);	
+			}
+		}
+	}
+}
+
+int main()
+{
+	T
+	{
+		int n,e,i,x,y;;
+		cin>>n>>e;
+		vector<vector<int>> v(n+1);
+		vector<int> vis(n+1); 
+		vector<int> sav; 
+		for(i=0;i<e;i++)
+		{ 
+			cin>>x>>y;
+			sav.push_back(x);
+			sav.push_back(y);
+			v[x].push_back(y);
+			v[y].push_back(x);
+		}
+		for(i=0;i<v.size();i++)
+		{
+			cout<<i<<"---> ";
+			for(auto it=v[i].begin();it!=v[i].end();it++)
+			{
+					cout<<*it<<" ";
+			}	
+			cout<<endl;
+		}
+		int root;
+		cin>>root;
+		bfs(root,v,vis);
+		for(i=0;i<sav.size();i++)
+			if(!vis[sav[i]])
+				bfs(sav[i],v,vis);
+	}
+return 0;
+}
+
