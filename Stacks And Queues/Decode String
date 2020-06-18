@@ -1,0 +1,61 @@
+class Solution {
+    stack<char>st;
+public:
+    string decodeString(string s) {
+        
+        int slen = s.length(),i;
+		for(i=0;i<slen;i++)
+		{
+			string temp="";
+			char tem;
+			if(s[i]==']')
+			{
+				tem = st.top();
+				while(tem != '[')
+				{
+					temp.push_back(st.top());
+					st.pop();
+					tem = st.top();
+				}
+				reverse(temp.begin(), temp.end());
+				cout<<"temp= "<<temp<<endl;
+				st.pop();
+				tem=st.top();
+				string gen="",r;
+				while(tem>='0'&&tem<='9')
+				{
+					st.pop();
+					gen.push_back(tem);
+					cout<<"gen= "<<gen<<endl;
+					if(!st.empty())
+						tem=st.top();
+					else
+						break;
+				}
+				reverse(gen.begin(), gen.end());
+				int len = stoi(gen);
+				for(int j=0;j<len;j++)
+				{
+					for(int k=0;k<temp.size();k++)
+					{
+						st.push(temp[k]);
+					}
+				}
+			}
+			else
+			{
+				st.push(s[i]);
+			}
+		}
+		string temp="";
+		while(!st.empty())
+		{
+			temp.push_back(st.top());
+			st.pop();
+		}
+		reverse(temp.begin(),temp.end());
+		cout<<"Ans= "<<temp<<endl;
+
+    return temp;    
+    }
+};
